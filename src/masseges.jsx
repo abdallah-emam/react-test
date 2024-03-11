@@ -5,17 +5,17 @@ import Pusher from "pusher-js";
 import React, { useEffect, useState } from "react";
 
 const Message = ({ discussionId }) => {
-  console.log("🚀 ~ Message ~ discussionId:", discussionId);
+  // console.log("🚀 ~ Message ~ discussionId:", discussionId);
   const [newComment, setNewComment] = useState([]);
   const [value, setValue] = useState("");
 
-  console.log("🚀 ~ Message ~ newComment:", newComment);
+  // console.log("🚀 ~ Message ~ newComment:", newComment);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // clear the input field
     setValue("");
-    console.log("🚀 ~ Message ~ value:", value);
+    // console.log("🚀 ~ Message ~ value:", value);
     // // Save the comment to the database
     axios
       .post(`http://localhost:3050/project-discussion-messages`, {
@@ -50,7 +50,7 @@ const Message = ({ discussionId }) => {
 
     // Listen for 'new-comment' event
     channel.bind("new-message", (data) => {
-      console.log("🚀 ~ channel.bind ~ data:", data);
+      // console.log("🚀 ~ channel.bind ~ data:", data);
       // Update the UI with the new comment
       setNewComment((prev) => [...prev, data]);
       // setNewComment((prev) => {
